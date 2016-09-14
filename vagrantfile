@@ -1,0 +1,27 @@
+Vagrant.configure(2) do |config|
+
+	config.vm.define "bdd-cmc6-111" do |bddbox|
+		bddbox.vm.box = "CMC6Base"
+		bddbox.vm.box_url = "file:///D:/DEV/VirtualBox/Vagrant/WINXPSP3_CMC6/winxpsp3_cmc6.box"
+
+		bddbox.vm.guest = :windows
+		bddbox.vm.communicator = "winrm"
+		bddbox.winrm.username = "mayhack"    
+		bddbox.winrm.password = "mayhack"
+
+		bddbox.vm.hostname = "bdd-box-111"
+
+		bddbox.vm.network "public_network", :adapter=>2 , ip: "192.168.0.111", 
+			:netmask => "255.255.255.0",
+			:mac => "080027000111"
+
+		bddbox.vm.provider "virtualbox" do |vbox|
+			vbox.gui = true
+			vbox.memory = "1024"
+		end
+
+		config.vm.provision "softupd", type: "shell", run: "manual" do |s|
+			s.path = "softupd.ps1"
+		end
+	end
+end
