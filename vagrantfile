@@ -21,7 +21,7 @@ Vagrant.configure(2) do |config|
 		end
 
 		config.vm.provision "softupd", type: "shell", run: "manual" do |s|
-			s.path = "softupd.ps1"
+			s.path = "scripts\\softupd.ps1"
 		end
 	end
 end
