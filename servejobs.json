@@ -1,0 +1,14 @@
+{
+	"tests": [
+		{
+			"scripts": "VerticalBarcodeTest.robot",
+			"tags": "cmc6ANDrotation-defaultANDawards-15074",
+			"outdir": "./VerticalBarcodeTest"
+		},
+		{
+			"scripts": "BarcodeHairCutting.robot",
+			"tags": "cmc6ANDrotation-disabledANDawards-15157",
+			"outdir": "./BarcodeHairCutting"
+		}
+	]
+}
