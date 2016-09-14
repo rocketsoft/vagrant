@@ -3,12 +3,14 @@
 		{
 			"scripts": "VerticalBarcodeTest.robot",
 			"tags": "cmc6ANDrotation-defaultANDawards-15074",
-			"outdir": "./VerticalBarcodeTest"
+			"outdir": "./VerticalBarcodeTest",
+			"node": "CMC6"
 		},
 		{
 			"scripts": "BarcodeHairCutting.robot",
 			"tags": "cmc6ANDrotation-disabledANDawards-15157",
-			"outdir": "./BarcodeHairCutting"
+			"outdir": "./BarcodeHairCutting",
+			"node": "CMC6"
 		}
 	]
 }
