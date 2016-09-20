@@ -1,0 +1,40 @@
+{
+    "testsetup": [
+        {
+            "copyfiles": [
+                {
+                    "src": "c:/strsystm/AcceptanceTest/test_data/vbar.zip",
+                    "dst": "c:/strsystm/comm/cds0001z374.zip"
+                }
+            ],
+            "provisions": [
+                "softupdate",
+                "cdsforceload"
+            ],
+            "node": [
+                "CMC6",
+                "VBAR",
+                "USA",
+                "0001-376"
+            ]
+        },
+        {
+            "copyfiles": [
+                {
+                    "src": "c:/strsystm/AcceptanceTest/test_data/realtime.zip",
+                    "dst": "c:/strsystm/comm/cds0001z374.zip"
+                }
+            ],
+            "provisions": [
+                "softupdate",
+                "cdsforceload"
+            ],
+            "node": [
+                "CMC6",
+                "VBAR",
+                "USA",
+                "0001-376"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "bddtests": [
+        {
+            "scripts": [
+                "BarcodeHairCuttingTest.USA.robot"
+            ],
+            "tags": [
+                "cmc6",
+                "upca"
+            ],
+            "outdir": "./HairCutting",
+            "node": [
+                "CMC6",
+                "VBAR",
+                "USA",
+                "0001-376"
+            ]
+        },
+        {
+            "scripts": [
+                "VerticalBarcodeTest.USA.robot"
+            ],
+            "tags": [
+                "cmc6",
+                "upca"
+            ],
+            "outdir": "./VerticalBarcode",
+            "node": [
+                "CMC6",
+                "VBAR",
+                "USA",
+                "0001-376"
+            ]
+        },
+        {
+            "scripts": [
+                "BarcodeBleedReductionTest.robot"
+            ],
+            "tags": [
+                "cmc6",
+                "upca"
+            ],
+            "outdir": "./BleedReduction",
+            "node": [
+                "CMC6",
+                "VBAR",
+                "USA",
+                "0001-376"
+            ]
+        },
+        {
+            "scripts": [
+                "RTPOS.robot",
+                "RTTRIG.robot"
+            ],
+            "tags": [],
+            "outdir": "./RealTime",
+            "node": [
+                "REALTIME",
+                "USA",
+                "0001-376"
+            ]
+        }
+    ]
+}
