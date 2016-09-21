@@ -8,7 +8,6 @@
                 "cmc6",
                 "upca"
             ],
-            "outdir": "./HairCutting",
             "node": [
                 "CMC6",
                 "VBAR",
@@ -24,7 +23,6 @@
                 "cmc6",
                 "upca"
             ],
-            "outdir": "./VerticalBarcode",
             "node": [
                 "CMC6",
                 "VBAR",
@@ -40,7 +38,6 @@
                 "cmc6",
                 "upca"
             ],
-            "outdir": "./BleedReduction",
             "node": [
                 "CMC6",
                 "VBAR",
@@ -54,7 +51,6 @@
                 "RTTRIG.robot"
             ],
             "tags": [],
-            "outdir": "./RealTime",
             "node": [
                 "REALTIME",
                 "USA",

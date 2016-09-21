@@ -1,6 +1,6 @@
 Vagrant.configure(2) do |config|
 
-	config.vm.define "bdd-cmc6-111" do |bddbox|
+	config.vm.define "bdd-cmc6-11" do |bddbox|
 		bddbox.vm.box = "CMC6Base"
 		bddbox.vm.box_url = "file:///D:/DEV/VirtualBox/Vagrant/WINXPSP3_CMC6/winxpsp3_cmc6.box"
 
@@ -9,11 +9,11 @@ Vagrant.configure(2) do |config|
 		bddbox.winrm.username = "mayhack"    
 		bddbox.winrm.password = "mayhack"
 
-		bddbox.vm.hostname = "bdd-box-111"
+		bddbox.vm.hostname = "bdd-box-11"
 
-		bddbox.vm.network "public_network", :adapter=>2 , ip: "10.10.86.111", 
+		bddbox.vm.network "public_network", :adapter=>2 , ip: "10.10.86.11", 
 			:netmask => "255.255.255.0",
-			:mac => "080027000111"
+			:mac => "080027000011"
 
 		bddbox.vm.provider "virtualbox" do |vbox|
 			vbox.gui = true
@@ -25,7 +25,7 @@ Vagrant.configure(2) do |config|
 		end
 	end
 	
-	config.vm.define "bdd-cmc6-112" do |bddbox|
+	config.vm.define "bdd-cmc6-12" do |bddbox|
 		bddbox.vm.box = "CMC6Base"
 		bddbox.vm.box_url = "file:///D:/DEV/VirtualBox/Vagrant/WINXPSP3_CMC6/winxpsp3_cmc6.box"
 
@@ -34,11 +34,11 @@ Vagrant.configure(2) do |config|
 		bddbox.winrm.username = "mayhack"    
 		bddbox.winrm.password = "mayhack"
 
-		bddbox.vm.hostname = "bdd-box-112"
+		bddbox.vm.hostname = "bdd-box-12"
 
-		bddbox.vm.network "public_network", :adapter=>2 , ip: "10.10.86.112", 
+		bddbox.vm.network "public_network", :adapter=>2 , ip: "10.10.86.12", 
 			:netmask => "255.255.255.0",
-			:mac => "080027000112"
+			:mac => "080027000012"
 
 		bddbox.vm.provider "virtualbox" do |vbox|
 			vbox.gui = true
