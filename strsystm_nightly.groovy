@@ -31,11 +31,11 @@ try {
             git branch: 'awards_ust', credentialsId: 'rocketsoft', url: 'https://github.com/rocketsoft/vagrant.git'
             
             print "Starting vagrant test machines"
-            bat 'vagrant up'
-            sleep time: 2, unit: 'MINUTES'
+            bat 'rem vagrant up'
+            //sleep time: 2, unit: 'MINUTES'
             
             print "Upgrading store system software in test machines"
-            bat 'vagrant provision'
+            bat 'rem vagrant provision'
             
             print 'Test machines are up-to-date'
         }
@@ -56,9 +56,9 @@ try {
             
             def bddTests = [:]
             
-            for( def i = 0; i < config['tests'].size(); i++) {
+            for( def i = 0; i < config['bddtests'].size(); i++) {
                 
-                def test = config['tests'].get(i)
+                def test = config['bddtests'].get(i)
                 bddTests['bddtest_${i}']  = {
                     
                     def testScripts = ""
