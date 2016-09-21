@@ -26,7 +26,7 @@ try {
     stage "Stage : Test Machine Setup"
     node('WINHOST') {
         print "Checkout Scripts"
-        git branch: 'awards', credentialsId: 'rocketsoft', url: 'https://github.com/rocketsoft/vagrant.git'
+        git branch: 'awards_ust', credentialsId: 'rocketsoft', url: 'https://github.com/rocketsoft/vagrant.git'
         
         print "Starting vagrant test machines"
         bat 'vagrant up'
