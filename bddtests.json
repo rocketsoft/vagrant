@@ -25,6 +25,7 @@
                 "upca"
             ],
             "node": [
+			    "ROBOT",
                 "CMC6",
                 "VBAR",
                 "USA",
