@@ -9,6 +9,7 @@
                 "upca"
             ],
             "node": [
+				"ROBOT",
                 "CMC6",
                 "VBAR",
                 "USA",
@@ -39,9 +40,23 @@
                 "upca"
             ],
             "node": [
+				"ROBOT",
                 "CMC6",
                 "VBAR",
                 "USA",
+                "0001-376"
+            ]
+        },
+		{
+			"enabled": false
+            "scripts": [
+                "WEBPOS.robot"
+            ],
+            "tags": [],
+            "node": [
+				"ROBOT",
+                "USA",
+				"WEBPOS",
                 "0001-376"
             ]
         },
@@ -52,7 +67,9 @@
             ],
             "tags": [],
             "node": [
+				"ROBOT",
                 "USA",
+				"REALTIME",
                 "0001-376"
             ]
         }

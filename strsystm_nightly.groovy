@@ -15,7 +15,7 @@ stage('Pre Cleaning') {
 }
 
 stage('Build') {
-    node('BUILDMACHINE') {
+    node('BUILD') {
         print 'Store system build has started'
         print 'Store system build is finished'
         
@@ -59,63 +59,67 @@ try {
             for( def i = 0; i < config['bddtests'].size(); i++) {
                 
                 def test = config['bddtests'].get(i)
-                bddTests["bddtest_${i}"]  = {
-                    
-                    def testScripts = ""
-                    for( def j = 0; j < test['scripts'].size(); j++) {
-                        if( j==0) {
-                            testScripts = test['scripts'].get(j)
-                        } else {
-                            testScripts = testScripts + ' ' + test['scripts'].get(j)
-                        }
-                    }
-                    
-                    def testTags = ""
-                    for( def j = 0; j < test['tags'].size(); j++) {
-                        if( j==0) {
-                            testTags = test['tags'].get(j)
-                        } else {
-                            testTags = testTags + 'AND' +  test['tags'].get(j)
-                        }
-                    }
-                    
-                    def testNodes = ""
-                    for( def j = 0; j < test['node'].size(); j++) {
-                        if( j==0) {
-                            testNodes = test['node'].get(j)
-                        } else {
-                            testNodes = testNodes + ' && ' + test['node'].get(j)
-                        }
-                    }
+				if( test["enabled"] == null || 
+					test["enabled"] == true) {
+					    
+					bddTests["bddtest_${i}"]  = {
+						
+						def testScripts = ""
+						for( def j = 0; j < test['scripts'].size(); j++) {
+							if( j==0) {
+								testScripts = test['scripts'].get(j)
+							} else {
+								testScripts = testScripts + ' ' + test['scripts'].get(j)
+							}
+						}
+						
+						def testTags = ""
+						for( def j = 0; j < test['tags'].size(); j++) {
+							if( j==0) {
+								testTags = test['tags'].get(j)
+							} else {
+								testTags = testTags + 'AND' +  test['tags'].get(j)
+							}
+						}
+						
+						def testNodes = ""
+						for( def j = 0; j < test['node'].size(); j++) {
+							if( j==0) {
+								testNodes = test['node'].get(j)
+							} else {
+								testNodes = testNodes + ' && ' + test['node'].get(j)
+							}
+						}
 
-                    node( testNodes) {
-                        print "BDD Test has started"
-                        if ( testScripts != "") {
-                            
-                            env.ROBOTSCRIPT="${testScripts}"
-                            env.ROBOTTAGS="${testTags}"
-                            env.ROBOTOUTPUT="output_${i}.xml"
-                            
-                            bat '''set PYTHONPATH=C:\\strsystm\\AcceptanceTest\\tools\\python27
-                                set SWIGWINPATH=C:\\strsystm\\AcceptanceTest\\tools\\swigwin-3.0.8
-                                set PYTHONSCRIPTSPATH=C:\\strsystm\\AcceptanceTest\\tools\\python27\\scripts
-                                set ACCEPTANCETESTBIN=C:\\strsystm\\AcceptanceTest\\bin
-                                set PATH=%PYTHONPATH%;%PYTHONSCRIPTSPATH%;%ACCEPTANCETESTBIN%;%SWIGWINPATH%;%PATH%
-                                set PATH=C:\\strsystm\\bin;C:\\strsystm\\dll;%PATH%
-                                
-                                pushd C:\\strsystm\\AcceptanceTest\\src
-                                if defined ROBOTTAGS (
-                                    python -m robot -i %ROBOTSCRIPT% %ROBOTTAGS% %ROBOTOUTPUT%
-                                ) else (
-                                    python -m robot %ROBOTTAGS% %ROBOTOUTPUT% 
-                                )
-                                popd
-                            '''
+						node( testNodes) {
+							print "BDD Test has started"
+							if ( testScripts != "") {
+								
+								env.ROBOTSCRIPT="${testScripts}"
+								env.ROBOTTAGS="${testTags}"
+								env.ROBOTOUTPUT="output_${i}.xml"
+								
+								bat '''set PYTHONPATH=C:\\strsystm\\AcceptanceTest\\tools\\python27
+									set SWIGWINPATH=C:\\strsystm\\AcceptanceTest\\tools\\swigwin-3.0.8
+									set PYTHONSCRIPTSPATH=C:\\strsystm\\AcceptanceTest\\tools\\python27\\scripts
+									set ACCEPTANCETESTBIN=C:\\strsystm\\AcceptanceTest\\bin
+									set PATH=%PYTHONPATH%;%PYTHONSCRIPTSPATH%;%ACCEPTANCETESTBIN%;%SWIGWINPATH%;%PATH%
+									set PATH=C:\\strsystm\\bin;C:\\strsystm\\dll;%PATH%
+									
+									pushd C:\\strsystm\\AcceptanceTest\\src
+									if defined ROBOTTAGS (
+										python -m robot -i %ROBOTSCRIPT% %ROBOTTAGS% %ROBOTOUTPUT%
+									) else (
+										python -m robot %ROBOTTAGS% %ROBOTOUTPUT% 
+									)
+									popd
+								'''
 
-                        }
-                        print "BDD Test is finished"
-                    }
-                }
+							}
+							print "BDD Test is finished"
+						}
+					}
+				}
             }
             
             parallel bddTests

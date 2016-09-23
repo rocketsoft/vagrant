@@ -25,6 +25,7 @@ Vagrant.configure(2) do |config|
 		end
 	end
 	
+	
 	config.vm.define "bdd-cmc6-14" do |bddbox|
 		bddbox.vm.box = "CMC6Base"
 		bddbox.vm.box_url = "file:///D:/DEV/VirtualBox/Vagrant/WINXPSP3_CMC6/winxpsp3_cmc6.box"
